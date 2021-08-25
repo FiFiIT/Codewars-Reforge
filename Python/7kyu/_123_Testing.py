@@ -3,6 +3,7 @@ from VovewlCount import getCount
 from Mumbling import accum
 from DisemvowelTrolls import disemvowel
 from HighestAndLowest import high_and_low
+from square_every_digit import square_digits
 
 
 class Testing_7kyu(unittest.TestCase):
@@ -45,6 +46,10 @@ class Testing_7kyu(unittest.TestCase):
         self.assertEqual(high_and_low("1 1 0"), "1 0")
         self.assertEqual(high_and_low("-1 -1 0"), "0 -1")
         self.assertEqual(high_and_low("42"), "42 42")
+
+    def test_square_digits(self):
+        self.assertEqual(square_digits(9119), 811181)
+        self.assertEqual(square_digits(0), 0)
 
 
 if __name__ == '__main__':
