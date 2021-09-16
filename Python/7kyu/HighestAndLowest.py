@@ -1,5 +1,6 @@
 def high_and_low(numbers: str):
-    return numbers
+    n = [int(n) for n in numbers.split()]
+    return f"{max(n)} {min(n)}"
 
 
 if __name__ == '__main__':

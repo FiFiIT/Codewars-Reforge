@@ -5,6 +5,7 @@ config.py
 __pycache__/
 .pytest_cache/
 *.py[cod]
+CSharp
 
 # C extensions
 *.so

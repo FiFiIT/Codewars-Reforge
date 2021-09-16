@@ -3,6 +3,7 @@ import { getCount } from "./VovewlCount.js";
 import { accum } from "./Mumbling.js";
 import { disemvowel } from "./DisemvowelTrolls.js";
 import { highAndLow } from "./HighestAndLowest.js";
+import { squareDigits } from "./Square Every Digit.js";
 
 describe("7kyu Tests", () => {
   it("Vovewl Count", function () {
@@ -55,5 +56,10 @@ describe("7kyu Tests", () => {
       highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6"),
       "542 -214"
     );
+  });
+  it("Square Every Digit", () => {
+    assert.strictEqual(squareDigits(3212), 9414);
+    assert.strictEqual(squareDigits(2112), 4114);
+    assert.strictEqual(squareDigits(0), 0);
   });
 });
