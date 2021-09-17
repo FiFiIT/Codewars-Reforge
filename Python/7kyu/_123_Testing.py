@@ -4,6 +4,8 @@ from Mumbling import accum
 from DisemvowelTrolls import disemvowel
 from HighestAndLowest import high_and_low
 from square_every_digit import square_digits
+from Descending_Order import descending_order
+from GetTheMiddleCharacter import get_middle
 
 
 class Testing_7kyu(unittest.TestCase):
@@ -50,6 +52,21 @@ class Testing_7kyu(unittest.TestCase):
     def test_square_digits(self):
         self.assertEqual(square_digits(9119), 811181)
         self.assertEqual(square_digits(0), 0)
+
+    def test_descending_order(self):
+        self.assertEqual(descending_order(0), 0)
+        self.assertEqual(descending_order(1), 1)
+        self.assertEqual(descending_order(111), 111)
+        self.assertEqual(descending_order(15), 51)
+        self.assertEqual(descending_order(1021), 2110)
+        self.assertEqual(descending_order(123456789), 987654321)
+
+    def test_get_the_middle_character(self):
+        self.assertEqual(get_middle("test"), "es")
+        self.assertEqual(get_middle("testing"), "t")
+        self.assertEqual(get_middle("middle"), "dd")
+        self.assertEqual(get_middle("A"), "A")
+        self.assertEqual(get_middle("of"), "of")
 
 
 if __name__ == '__main__':

@@ -4,6 +4,8 @@ import { accum } from "./Mumbling.js";
 import { disemvowel } from "./DisemvowelTrolls.js";
 import { highAndLow } from "./HighestAndLowest.js";
 import { squareDigits } from "./Square Every Digit.js";
+import { descendingOrder } from "./Descending Order.js";
+import { getMiddle } from "./GetTheMiddleCharacter.js";
 
 describe("7kyu Tests", () => {
   it("Vovewl Count", function () {
@@ -61,5 +63,19 @@ describe("7kyu Tests", () => {
     assert.strictEqual(squareDigits(3212), 9414);
     assert.strictEqual(squareDigits(2112), 4114);
     assert.strictEqual(squareDigits(0), 0);
+  });
+  it("Descending Order", () => {
+    assert.strictEqual(descendingOrder(0), 0);
+    assert.strictEqual(descendingOrder(1), 1);
+    assert.strictEqual(descendingOrder(111), 111);
+    assert.strictEqual(descendingOrder(15), 51);
+    assert.strictEqual(descendingOrder(1021), 2110);
+    assert.strictEqual(descendingOrder(123456789), 987654321);
+  });
+  it("Get the middle character", function () {
+    assert.strictEqual(getMiddle("test"), "es");
+    assert.strictEqual(getMiddle("testing"), "t");
+    assert.strictEqual(getMiddle("middle"), "dd");
+    assert.strictEqual(getMiddle("A"), "A");
   });
 });
