@@ -11,7 +11,7 @@ function getCount_1(str) {
 
 const getCount_2 = (str) => str.replace(/[^aeiou]/g, "").length;
 
-var r = getCount_2("abracuadabra");
-console.log(r);
+// var r = getCount_2("abracuadabra");
+// console.log(r);
 
 export { getCount };

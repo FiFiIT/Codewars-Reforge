@@ -9,7 +9,7 @@ function getMiddle(s) {
   return s.substr((s.length - 1) / 2, 2 - (s.length % 2));
 }
 
-var r = getMiddle("testing");
-console.log(r);
+// var r = getMiddle("testing");
+// console.log(r);
 
 export { getMiddle };

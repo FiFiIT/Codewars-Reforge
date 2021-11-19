@@ -8,7 +8,7 @@ function squareDigits(num) {
   );
 }
 
-var result = squareDigits(3212);
-console.log(result);
+// var result = squareDigits(3212);
+// console.log(result);
 
 export { squareDigits };

@@ -12,7 +12,7 @@ function descendingOrder_1(n) {
   return parseInt(String(n).split("").sort().reverse().join(""));
 }
 
-var result = descendingOrder_1(15);
-console.log(result);
+// var result = descendingOrder_1(15);
+// console.log(result);
 
 export { descendingOrder };
