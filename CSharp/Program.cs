@@ -7,9 +7,7 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            int result = 0;
-            result = DescendingOrder.Go(15);
-            Console.WriteLine(result);
+            Console.WriteLine(Kata7.DisemvowelTrolls("This website is for losers LOL!"));
         }
     }
 }
