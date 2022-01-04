@@ -7,7 +7,7 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Kata7.DisemvowelTrolls("This website is for losers LOL!"));
+            Console.WriteLine(Kata7.GetTheMiddleCharacter2("testing"));
         }
     }
 }
