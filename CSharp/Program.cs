@@ -7,7 +7,7 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Kata7.Isogram2("moOse"));
+            Console.WriteLine(Kata7.GetTheMiddleCharacter2("testing"));
         }
     }
 }
