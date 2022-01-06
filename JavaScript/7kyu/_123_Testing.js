@@ -1,19 +1,20 @@
 import { strict as assert } from "assert";
-import { getCount } from "./VovewlCount.js";
+import { getCount_2 } from "./VovewlCount.js";
 import { accum } from "./Mumbling.js";
 import { disemvowel } from "./DisemvowelTrolls.js";
 import { highAndLow } from "./HighestAndLowest.js";
 import { squareDigits } from "./Square Every Digit.js";
 import { descendingOrder } from "./Descending Order.js";
 import { getMiddle } from "./GetTheMiddleCharacter.js";
+import { isIsogram } from "./Isograms.js";
 
 describe("7kyu Tests", () => {
   it("Vovewl Count", function () {
-    assert.strictEqual(getCount("abracadabra"), 5);
-    assert.strictEqual(getCount("aeiou"), 5);
-    assert.strictEqual(getCount("y"), 0);
-    assert.strictEqual(getCount("bcdfghjklmnpqrstvwxz y"), 0);
-    assert.strictEqual(getCount(""), 0);
+    assert.strictEqual(getCount_2("abracadabra"), 5);
+    assert.strictEqual(getCount_2("aeiou"), 5);
+    assert.strictEqual(getCount_2("y"), 0);
+    assert.strictEqual(getCount_2("bcdfghjklmnpqrstvwxz y"), 0);
+    assert.strictEqual(getCount_2(""), 0);
   });
   it("Mumbling", () => {
     assert.strictEqual(
@@ -77,5 +78,25 @@ describe("7kyu Tests", () => {
     assert.strictEqual(getMiddle("testing"), "t");
     assert.strictEqual(getMiddle("middle"), "dd");
     assert.strictEqual(getMiddle("A"), "A");
+  });
+  it("Isogram tests", () => {
+    assert.strictEqual(isIsogram("Dermatoglyphics"), true);
+    assert.strictEqual(isIsogram("isogram"), true);
+    assert.strictEqual(
+      isIsogram("aba"),
+      false,
+      "same chars may not be adjacent"
+    );
+    assert.strictEqual(
+      isIsogram("moOse"),
+      false,
+      "same chars may not be same case"
+    );
+    assert.strictEqual(isIsogram("isIsogram"), false);
+    assert.strictEqual(
+      isIsogram(""),
+      true,
+      "an empty string is a valid isogram"
+    );
   });
 });

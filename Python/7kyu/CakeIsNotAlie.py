@@ -6,7 +6,7 @@ def solution(text: str) -> int:
         split = text[:i]
         tab = text.split(split)
         left = len([t for t in tab if t])
-        print(split)
+        # print(split)
 
         if left == 0:
             return sum(1 for t in re.finditer(split, text))
@@ -14,5 +14,6 @@ def solution(text: str) -> int:
     return 1
 
 
-result = solution("a")
-print(result)
+if __name__ == "__main__":
+    result = solution("a")
+    print(result)

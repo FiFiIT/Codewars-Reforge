@@ -15,5 +15,6 @@ def descending_order_2(num):
     raise ValueError("Non-negative integer expected")
 
 
-result = descending_order_2(46)
-print(result)
+if __name__ == "__main__":
+    result = descending_order_2(46)
+    print(result)
