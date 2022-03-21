@@ -7,6 +7,7 @@ from square_every_digit import square_digits
 from Descending_Order import descending_order
 from GetTheMiddleCharacter import get_middle
 from Isogram import is_isogram, is_isogram1
+from ListFiltering import filter_list
 
 
 class Testing_7kyu(unittest.TestCase):
@@ -50,7 +51,8 @@ class Testing_7kyu(unittest.TestCase):
 
     def test_DisemvowelTrolls(self):
         self.assertEqual(
-            disemvowel("This website is for losers LOL!"), "Ths wbst s fr lsrs LL!"
+            disemvowel(
+                "This website is for losers LOL!"), "Ths wbst s fr lsrs LL!"
         )
 
     def test_HighAndLow(self):
@@ -87,17 +89,29 @@ class Testing_7kyu(unittest.TestCase):
     def test_is_isogram(self):
         self.assertEqual(is_isogram("Dermatoglyphics"), True)
         self.assertEqual(is_isogram("isogram"), True)
-        self.assertEqual(is_isogram("aba"), False, "same chars may not be adjacent")
-        self.assertEqual(is_isogram("moOse"), False, "same chars may not be same case")
+        self.assertEqual(is_isogram("aba"), False,
+                         "same chars may not be adjacent")
+        self.assertEqual(is_isogram("moOse"), False,
+                         "same chars may not be same case")
         self.assertEqual(is_isogram("isIsogram"), False)
-        self.assertEqual(is_isogram(""), True, "an empty string is a valid isogram")
+        self.assertEqual(is_isogram(""), True,
+                         "an empty string is a valid isogram")
 
         self.assertEqual(is_isogram1("Dermatoglyphics"), True)
         self.assertEqual(is_isogram1("isogram"), True)
-        self.assertEqual(is_isogram1("aba"), False, "same chars may not be adjacent")
-        self.assertEqual(is_isogram1("moOse"), False, "same chars may not be same case")
+        self.assertEqual(is_isogram1("aba"), False,
+                         "same chars may not be adjacent")
+        self.assertEqual(is_isogram1("moOse"), False,
+                         "same chars may not be same case")
         self.assertEqual(is_isogram1("isIsogram"), False)
-        self.assertEqual(is_isogram1(""), True, "an empty string is a valid isogram")
+        self.assertEqual(is_isogram1(""), True,
+                         "an empty string is a valid isogram")
+
+    def test_list_filtering(self):
+        self.assertEqual(filter_list([1, 2, 'a', 'b']), [1, 2])
+        self.assertEqual(filter_list([1, 'a', 'b', 0, 15]), [1, 0, 15])
+        self.assertEqual(filter_list(
+            [1, 2, 'aasf', '1', '123', 123]), [1, 2, 123])
 
 
 if __name__ == "__main__":

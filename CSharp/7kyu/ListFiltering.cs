@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace _7Kyu
+namespace CSharp._7Kyu
 {
     public static partial class Kata7
     {
@@ -11,14 +11,19 @@ namespace _7Kyu
         {
             var result = new List<int>();
 
-            foreach(var l in listOfItems){
-                if(l is int)
+            foreach (var l in listOfItems)
+            {
+                if (l is int)
+                {
+                    result.Add((int)l);
+                }
             }
-
-            result = listOfItems.Select(a => Regex.IsMatch(a.ToString(), @"\d"));
-
             return result;
         }
 
+        public static IEnumerable<int> GetIntegersFromList_2(List<object> listOfItems)
+        {
+            return listOfItems.OfType<int>();
+        }
     }
 }

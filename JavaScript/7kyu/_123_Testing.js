@@ -7,6 +7,7 @@ import { squareDigits } from "./Square Every Digit.js";
 import { descendingOrder } from "./Descending Order.js";
 import { getMiddle } from "./GetTheMiddleCharacter.js";
 import { isIsogram } from "./Isograms.js";
+import { filter_list } from "./ListFiltering.js";
 
 describe("7kyu Tests", () => {
   it("Vovewl Count", function () {
@@ -98,5 +99,10 @@ describe("7kyu Tests", () => {
       true,
       "an empty string is a valid isogram"
     );
+  });
+  it("List Filtering tests", () => {
+    assert.deepEqual(filter_list([1, 2, "a", "b"]), [1, 2]);
+    assert.deepEqual(filter_list([1, "a", "b", 0, 15]), [1, 0, 15]);
+    assert.deepEqual(filter_list([1, 2, "aasf", "1", "123", 123]), [1, 2, 123]);
   });
 });
