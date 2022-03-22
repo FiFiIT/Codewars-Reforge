@@ -8,6 +8,7 @@ import { descendingOrder } from "./Descending Order.js";
 import { getMiddle } from "./GetTheMiddleCharacter.js";
 import { isIsogram } from "./Isograms.js";
 import { filter_list } from "./ListFiltering.js";
+import { XO } from "./ExesAndOhs.js";
 
 describe("7kyu Tests", () => {
   it("Vovewl Count", function () {
@@ -104,5 +105,13 @@ describe("7kyu Tests", () => {
     assert.deepEqual(filter_list([1, 2, "a", "b"]), [1, 2]);
     assert.deepEqual(filter_list([1, "a", "b", 0, 15]), [1, 0, 15]);
     assert.deepEqual(filter_list([1, 2, "aasf", "1", "123", 123]), [1, 2, 123]);
+  });
+  it("Exes and Ohs", () => {
+    assert.strictEqual(XO("xo"), true);
+    assert.strictEqual(XO("xxOo"), true);
+    assert.strictEqual(XO("xxxm"), false);
+    assert.strictEqual(XO("Oo"), false);
+    assert.strictEqual(XO("ooom"), false);
+    assert.strictEqual(XO("Oox"), false);
   });
 });

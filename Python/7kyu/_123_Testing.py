@@ -8,6 +8,7 @@ from Descending_Order import descending_order
 from GetTheMiddleCharacter import get_middle
 from Isogram import is_isogram, is_isogram1
 from ListFiltering import filter_list
+from ExesAndOhs import XO
 
 
 class Testing_7kyu(unittest.TestCase):
@@ -112,6 +113,11 @@ class Testing_7kyu(unittest.TestCase):
         self.assertEqual(filter_list([1, 'a', 'b', 0, 15]), [1, 0, 15])
         self.assertEqual(filter_list(
             [1, 2, 'aasf', '1', '123', 123]), [1, 2, 123])
+
+    def test_exes_and_ohs(self):
+        self.assertEqual(XO("xo"), True)
+        self.assertEqual(XO("xo0"), True)
+        self.assertEqual(XO("xxxxxo"), False)
 
 
 if __name__ == "__main__":
