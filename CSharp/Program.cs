@@ -7,7 +7,7 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var result = Kata7.MakeComplement("ATTGC");
+            var result = Kata7.Maskify_2("987654321");
 
             Console.WriteLine(result);
         }
