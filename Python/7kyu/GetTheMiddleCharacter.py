@@ -10,7 +10,7 @@ def get_middle(s):
 
 def get_middle_1(s):
     index, odd = divmod(len(s), 2)
-    return s[index] if odd else s[index - 1 : index + 1]
+    return s[index] if odd else s[index - 1: index + 1]
 
 
 if __name__ == "__main__":
