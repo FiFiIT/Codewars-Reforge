@@ -7,7 +7,8 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var result = Kata7.Maskify_2("987654321");
+            int[] tab = { 10, 343445353, 3453445, 2147483647 };
+            var result = Kata7.sumTwoSmallestNumbers_2(tab);
 
             Console.WriteLine(result);
         }
