@@ -7,7 +7,7 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var result = Kata7.Maskify_2("987654321");
+            var result = Kata7.Longest_2("loopingisfunbutdangerous", "lessdangerousthancoding");
 
             Console.WriteLine(result);
         }
