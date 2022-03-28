@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using CSharp._7Kyu;
+using CSharp._6Kyu;
 namespace CSharp
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int[] tab = { 10, 343445353, 3453445, 2147483647 };
-            var result = Kata7.sumTwoSmallestNumbers_2(tab);
+            var result = Kata6.ipToInt32("128.32.10.1");
+            // 2149583361
 
             Console.WriteLine(result);
         }
