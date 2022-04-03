@@ -9,6 +9,7 @@ from GetTheMiddleCharacter import get_middle
 from Isogram import is_isogram, is_isogram1
 from ListFiltering import filter_list
 from ExesAndOhs import XO
+from ValidatePIN import validate_pin
 
 
 class Testing_7kyu(unittest.TestCase):
@@ -118,6 +119,23 @@ class Testing_7kyu(unittest.TestCase):
         self.assertEqual(XO("xo"), True)
         self.assertEqual(XO("xo0"), True)
         self.assertEqual(XO("xxxxxo"), False)
+
+    def test_validate_pin(self):
+        self.assertEqual(validate_pin("1"), False, "Wrong output for '1'")
+        self.assertEqual(validate_pin("12"), False, "Wrong output for '12'")
+        self.assertEqual(validate_pin("123"), False, "Wrong output for '123'")
+        self.assertEqual(validate_pin("12345"), False,
+                         "Wrong output for '12345'")
+        self.assertEqual(validate_pin("1234567"), False,
+                         "Wrong output for '1234567'")
+        self.assertEqual(validate_pin("-1234"), False,
+                         "Wrong output for '-1234'")
+        self.assertEqual(validate_pin("-12345"), False,
+                         "Wrong output for '-12345'")
+        self.assertEqual(validate_pin("1.234"), False,
+                         "Wrong output for '1.234'")
+        self.assertEqual(validate_pin("00000000"), False,
+                         "Wrong output for '00000000'")
 
 
 if __name__ == "__main__":

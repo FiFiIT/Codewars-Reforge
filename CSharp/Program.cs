@@ -8,7 +8,7 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var result = Kata6.ipToInt32("128.32.10.1");
+            var result = Kata7.ValidatePin("123456");
             // 2149583361
 
             Console.WriteLine(result);
