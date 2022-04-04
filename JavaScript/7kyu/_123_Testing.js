@@ -9,6 +9,7 @@ import { getMiddle } from "./GetTheMiddleCharacter.js";
 import { isIsogram } from "./Isograms.js";
 import { filter_list } from "./ListFiltering.js";
 import { XO } from "./ExesAndOhs.js";
+import { openOrSenior } from "./CategorizeNewMember.js";
 
 describe("7kyu Tests", () => {
   it("Vovewl Count", function () {
@@ -113,5 +114,34 @@ describe("7kyu Tests", () => {
     assert.strictEqual(XO("Oo"), false);
     assert.strictEqual(XO("ooom"), false);
     assert.strictEqual(XO("Oox"), false);
+  });
+  it("Categorize New Member", () => {
+    assert.deepEqual(
+      openOrSenior([
+        [45, 12],
+        [55, 21],
+        [19, -2],
+        [104, 20],
+      ]),
+      ["Open", "Senior", "Open", "Senior"]
+    );
+    assert.deepEqual(
+      openOrSenior([
+        [3, 12],
+        [55, 1],
+        [91, -2],
+        [53, 23],
+      ]),
+      ["Open", "Open", "Open", "Open"]
+    );
+    assert.deepEqual(
+      openOrSenior([
+        [59, 12],
+        [55, -1],
+        [12, -2],
+        [12, 12],
+      ]),
+      ["Senior", "Open", "Open", "Open"]
+    );
   });
 });

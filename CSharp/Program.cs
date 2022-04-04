@@ -8,10 +8,14 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var result = Kata7.ValidatePin("123456");
-            // 2149583361
+            var data = new[] { new[] { 45, 12 }, new[] { 55, 21 }, new[] { 19, 2 }, new[] { 104, 20 } };
 
-            Console.WriteLine(result);
+            var result = Kata7.OpenOrSenior(data);
+
+            foreach (var r in result)
+            {
+                Console.WriteLine(r);
+            }
         }
     }
 }
