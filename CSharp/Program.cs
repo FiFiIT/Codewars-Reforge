@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using CSharp._7Kyu;
 using CSharp._6Kyu;
@@ -8,14 +9,15 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var data = new[] { new[] { 45, 12 }, new[] { 55, 21 }, new[] { 19, 2 }, new[] { 104, 20 } };
 
-            var result = Kata7.OpenOrSenior(data);
+            var input = new[] { 20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5 };
+            var result = Kata6.find_it(input);
 
-            foreach (var r in result)
-            {
-                Console.WriteLine(r);
-            }
+            Console.WriteLine(result);
+            // foreach (var r in result)
+            // {
+            //     Console.WriteLine(r);
+            // }
         }
     }
 }
