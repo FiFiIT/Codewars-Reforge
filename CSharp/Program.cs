@@ -10,14 +10,15 @@ namespace CSharp
         static void Main(string[] args)
         {
 
-            var input = new[] { 20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5 };
-            var result = Kata6.find_it(input);
+            var input = "Hey fellow warriors";
+            var result = Kata6.SpinWords(input);
 
             Console.WriteLine(result);
             // foreach (var r in result)
             // {
             //     Console.WriteLine(r);
             // }
+
         }
     }
 }
