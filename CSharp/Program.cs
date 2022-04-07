@@ -10,13 +10,25 @@ namespace CSharp
         static void Main(string[] args)
         {
 
-            var input = "Hey fellow warriors";
-            var result = Kata6.SpinWords(input);
+            var input = 456;
+            var result = Kata6.DigitalRoot(input);
 
             Console.WriteLine(result);
-            // foreach (var r in result)
+            // var n = 456;
+            // var r = n.ToString().ToArray();
+            // var sum = r.Sum(x =>
             // {
-            //     Console.WriteLine(r);
+            //     int y = int.Parse(x.ToString());
+            //     Console.WriteLine(y);
+
+            //     return y;
+            // });
+
+            // Console.WriteLine(sum);
+
+            // foreach (var a in r)
+            // {
+            //     Console.WriteLine(a);
             // }
 
         }
