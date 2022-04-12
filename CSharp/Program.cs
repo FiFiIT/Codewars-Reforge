@@ -12,12 +12,12 @@ namespace CSharp
         static void Main(string[] args)
         {
 
-            var input = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+            var input = "recede";
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata6.CreatePhoneNumber_2(input);
+            var result = Kata6.DuplicateEncode(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
