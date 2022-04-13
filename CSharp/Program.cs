@@ -12,12 +12,12 @@ namespace CSharp
         static void Main(string[] args)
         {
 
-            var input = "recede";
+            var input = new string[] { "n", "n", "n", "s", "n", "s", "n", "s", "n", "s" };
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata6.DuplicateEncode(input);
+            var result = Kata6.IsValidWalk(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
@@ -26,22 +26,6 @@ namespace CSharp
 
             Console.WriteLine("RunTime: " + milliseconds);
 
-            // var n = 456;
-            // var r = n.ToString().ToArray();
-            // var sum = r.Sum(x =>
-            // {
-            //     int y = int.Parse(x.ToString());
-            //     Console.WriteLine(y);
-
-            //     return y;
-            // });
-
-            // Console.WriteLine(sum);
-
-            // foreach (var a in r)
-            // {
-            //     Console.WriteLine(a);
-            // }
 
         }
     }
