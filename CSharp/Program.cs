@@ -11,12 +11,12 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var input = 999;
+            var input = "The sunset sets at twelve o' clock.";
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata6.Persistence(input);
+            var result = Kata6.AlphabetPosition_kata2(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
