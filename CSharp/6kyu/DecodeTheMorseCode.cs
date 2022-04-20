@@ -4,9 +4,11 @@ using System.Collections.Generic;
 
 namespace CSharp._6Kyu
 {
-    public static class MorseCode
+    public static partial class Kata6
     {
-        static Dictionary<string, string> MORSE_CODE = new Dictionary<string, string>()
+        public static class MorseCode
+        {
+            static Dictionary<string, string> MORSE_CODE = new Dictionary<string, string>()
         {
             {".-", "A"},
             {"-...", "B"},
@@ -55,13 +57,12 @@ namespace CSharp._6Kyu
             {"--..--", ","}
         };
 
-        public static string Get(string word)
-        {
-            return MORSE_CODE[word];
+            public static string Get(string word)
+            {
+                return MORSE_CODE[word];
+            }
         }
-    }
-    public static partial class Kata6
-    {
+
         public static string Decode(string morseCode)
         {
             var result = new List<string>();
