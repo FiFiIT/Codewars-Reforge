@@ -12,14 +12,12 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var input = "111";
+            var input = new int[] { 1, 2, 3, 4, 3, 2, 1 };
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata4.DecodeBits(input);
-            Console.WriteLine(result);
-            result = Kata6.Decode(result);
+            var result = Kata6.FindEvenIndex(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
