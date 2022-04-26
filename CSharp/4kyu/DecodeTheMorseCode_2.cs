@@ -6,72 +6,70 @@ using System.Collections.Generic;
 
 namespace CSharp._4Kyu
 {
-    // public static class Kata_Sollutions_1
-    // {
-    //     public static string DecodeBits(string bits)
-    //     {
-    //         var cleanedBits = bits.Trim('0');
-    //         var rate = GetRate();
-    //         return cleanedBits
-    //         .Replace(GetDelimiter(7, "0"), "   ")
-    //         .Replace(GetDelimiter(3, "0"), " ")
-    //         .Replace(GetDelimiter(3, "1"), "-")
-    //         .Replace(GetDelimiter(1, "1"), ".")
-    //         .Replace(GetDelimiter(1, "0"), "");
+    public static class Kata_Sollutions_1
+    {
+        public static string DecodeBits(string bits)
+        {
+            var cleanedBits = bits.Trim('0');
+            var rate = GetRate();
+            return cleanedBits
+            .Replace(GetDelimiter(7, "0"), "   ")
+            .Replace(GetDelimiter(3, "0"), " ")
+            .Replace(GetDelimiter(3, "1"), "-")
+            .Replace(GetDelimiter(1, "1"), ".")
+            .Replace(GetDelimiter(1, "0"), "");
 
-    //         string GetDelimiter(int len, string c) => Enumerable.Range(0, len * rate).Aggregate("", (acc, _) => acc + c);
-    //         int GetRate() => GetLengths("0").Union(GetLengths("1")).Min();
-    //         IEnumerable<int> GetLengths(string del) => cleanedBits.Split(del, StringSplitOptions.RemoveEmptyEntries).Select(s => s.Length);
-    //     }
+            string GetDelimiter(int len, string c) => Enumerable.Range(0, len * rate).Aggregate("", (acc, _) => acc + c);
+            int GetRate() => GetLengths("0").Union(GetLengths("1")).Min();
+            IEnumerable<int> GetLengths(string del) => cleanedBits.Split(del, StringSplitOptions.RemoveEmptyEntries).Select(s => s.Length);
+        }
 
-    //     public static string DecodeMorse(string morseCode)
-    //     {
-    //         return morseCode
-    //         .Split("   ")
-    //         .Aggregate("", (res, word) => $"{res}{ConvertWord(word)} ")
-    //         .Trim();
+        public static string DecodeMorse(string morseCode)
+        {
+            return morseCode
+            .Split("   ")
+            .Aggregate("", (res, word) => $"{res}{ConvertWord(word)} ")
+            .Trim();
+        }
 
-    //         string ConvertWord(string word) => word.Split(' ').Aggregate("", (wordRes, c) => wordRes + MorseCode.Get(c));
-    //     }
-    // }
+        public static string ConvertWord(string word) => word.Split(' ').Aggregate("", (wordRes, c) => wordRes + Kata6.MorseCode.Get(c));
+    }
 
-    // public static class Kata_Sollutions_2
-    // {
-    //     public class MorseCodeDecoder
-    //     {
-    //         public static string DecodeMorse(string morseCode)
-    //         {
-    //             return Regex.Replace(morseCode, @"(?:[\.-]+)|(?:\s+)", MatchReplace);
-    //         }
+    public static class Kata_Sollutions_2
+    {
+        public class MorseCodeDecoder
+        {
+            public static string DecodeMorse(string morseCode)
+            {
+                return Regex.Replace(morseCode, @"(?:[\.-]+)|(?:\s+)", MatchReplace);
+            }
 
-    //         public static string MatchReplace(Match m)
-    //         {
-    //             switch (m.Value)
-    //             {
-    //                 case " ": return "";
-    //                 case "   ": return " ";
-    //                 default: return Kata6.MorseCode.Get(m.Value);
-    //             }
+            public static string MatchReplace(Match m)
+            {
+                switch (m.Value)
+                {
+                    case " ": return "";
+                    case "   ": return " ";
+                    default: return Kata6.MorseCode.Get(m.Value);
+                }
+            }
 
-    //         }
+            public static string DecodeBits(string bits)
+            {
+                var tokens = Regex.Matches(bits.Trim('0'), @"(0+|1+)").OfType<Match>().Select(i => i.Value).ToList();
+                var basis = tokens.Select(i => i.Length).Min();
+                var elts = new Dictionary<string, string>{
+                    {new string('1', basis), "."},
+                    {new string('0', basis), ""},
+                    {new string('1', basis*3), "-"},
+                    {new string('0', basis*3), " "},
+                    {new string('0', basis*7), "   "}
+                };
 
-    //         public static string DecodeBits(string bits)
-    //         {
-    //             var tokens = Regex.Matches(bits.Trim('0'), @"(0+|1+)").OfType<Match>().Select(i => i.Value).ToList();
-    //             var basis = tokens.Select(i => i.Length).Min();
-    //             var elts = new Dictionary<string, string>{
-    //                 {new string('1', basis), "."},
-    //                 {new string('0', basis), ""},
-    //                 {new string('1', basis*3), "-"},
-    //                 {new string('0', basis*3), " "},
-    //                 {new string('0', basis*7), "   "}
-    //             };
-
-    //             return string.Join("", tokens.Select(i => elts[i]));
-
-    //         }
-    //     }
-    // }
+                return string.Join("", tokens.Select(i => elts[i]));
+            }
+        }
+    }
 
     public static partial class Kata4
     {

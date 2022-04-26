@@ -59,3 +59,5 @@ const decodeMorse = function (code) {
 
 var result = decodeMorse(".... . -.--   .--- ..- -.. .");
 console.log(result);
+
+export { decodeMorse };
