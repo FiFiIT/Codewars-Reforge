@@ -1,6 +1,4 @@
 using Xunit;
-using Xunit.Abstractions;
-using CSharp._6Kyu;
 
 namespace CSharp._6Kyu.Testing
 {
