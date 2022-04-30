@@ -16,11 +16,23 @@ function ipToInt32(ip) {
 //>>> Zero fill right shift	Shifts right by pushing zeros in from the left, and let the rightmost bits fall off
 const ipToInt32_2 = (ip) => ip.split(".").reduce((a, b) => (a << 8) | b) >>> 0;
 
+const ipToInt32_2_1 = (ip) => {
+  ip.split(".").reduce((a, b) => {
+    var c = (a << 8) | b;
+
+    console.log(a, (a >> 0).toString(2).padStart(8, "0"));
+    console.log(b, (b >> 0).toString(2).padStart(8, "0"));
+    console.log(c, c.toString(2).padStart(8, "0"));
+
+    return c;
+  });
+};
+
 function ipToInt32_3(ip) {
   return ip.split(".").reduce((acc, num) => acc * 256 + +num);
 }
 
-console.log(1 + +5);
+// console.log(1 + +5);
 
-console.log(ipToInt32_3("128.32.10.1"));
+console.log(ipToInt32_2("128.32.10.1"));
 // console.log(ipToInt32_2("128.32.10.1"));

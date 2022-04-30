@@ -11,12 +11,12 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var input = "The sunset sets at twelve o' clock.";
+            var input = "Raw Danger!(Zettai Zetsumei Toshi 2) for the PlayStation 2 is a bit queer, but an alright game I guess, uh... CJ kicks and vexes Tenpenny precariously ? This should be a pangram now, probably.";
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata6.AlphabetPosition_kata2(input);
+            var result = Kata6.IsPangram(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
@@ -24,8 +24,6 @@ namespace CSharp
             Console.WriteLine(result);
 
             Console.WriteLine("RunTime: " + milliseconds);
-
-
         }
     }
 }

@@ -9,11 +9,9 @@ namespace CSharp._6Kyu
     {
         public static string AlphabetPosition(string text)
         {
-            // Console.WriteLine(Convert.ToByte('a'));
-            //text = text.ToLower().Replace(" ", "");
             text = Regex.Replace(text.ToLower(), @"[^a-z]", "");
 
-            return string.Join(" ", Encoding.ASCII.GetBytes(text).Select(b => b - 96));
+            return string.Join(" ", text.Select(a => a & 31));
         }
 
         public static string AlphabetPosition_kata(string text)

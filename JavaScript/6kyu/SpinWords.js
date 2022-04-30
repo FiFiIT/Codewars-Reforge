@@ -1,7 +1,8 @@
 function spinWords(string) {
   return string
     .split(" ")
-    .map((v, i) => (v.length >= 5 ? v.split("").reverse().join("") : v));
+    .map((v, i) => (v.length >= 5 ? v.split("").reverse().join("") : v))
+    .join(" ");
 }
 
 function spinWords_2(string) {

@@ -6,5 +6,5 @@ function alphabetPosition(text) {
   return text.map((c) => "abcdefghijklmnopqrstuvwxyz".indexOf(c) + 1).join(" ");
 }
 
-var result = alphabetPosition("123");
+var result = alphabetPosition("123f");
 console.log(result);
