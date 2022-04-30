@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using CSharp._7Kyu;
 using CSharp._6Kyu;
+using CSharp._4Kyu;
 using System.Diagnostics;
 
 namespace CSharp
@@ -11,12 +12,23 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var input = "Raw Danger!(Zettai Zetsumei Toshi 2) for the PlayStation 2 is a bit queer, but an alright game I guess, uh... CJ kicks and vexes Tenpenny precariously ? This should be a pangram now, probably.";
+            var value = 371;
+            var result = value.ToString().Select(v => Math.Pow(int.Parse(v.ToString()), value.ToString().Length));
+
+            foreach (var r in result)
+            {
+                Console.WriteLine(r);
+            }
+        }
+
+        static void RunMe()
+        {
+            var input = 371;
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata6.IsPangram(input);
+            var result = Kata6.Narcissistic(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
