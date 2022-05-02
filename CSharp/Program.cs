@@ -5,6 +5,7 @@ using CSharp._7Kyu;
 using CSharp._6Kyu;
 using CSharp._4Kyu;
 using System.Diagnostics;
+using System.Text;
 
 namespace CSharp
 {
@@ -12,23 +13,17 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var value = 371;
-            var result = value.ToString().Select(v => Math.Pow(int.Parse(v.ToString()), value.ToString().Length));
-
-            foreach (var r in result)
-            {
-                Console.WriteLine(r);
-            }
+            RunMe();
         }
 
         static void RunMe()
         {
-            var input = 371;
+            var input = new[] { 'a', 'b', 'c', 'd', 'f' };
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata6.Narcissistic(input);
+            var result = Kata6.FindMissingLetter_kata_2(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
