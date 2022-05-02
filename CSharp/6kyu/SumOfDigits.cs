@@ -7,7 +7,7 @@ namespace CSharp._6Kyu
     {
         public static int DigitalRoot(long n)
         {
-            int number = n.ToString().ToArray().Sum(x => int.Parse(x.ToString()));
+            int number = n.ToString().Sum(x => int.Parse(x.ToString()));
 
             if (number > 9)
             {
