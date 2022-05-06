@@ -18,17 +18,21 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = new[] { 'a', 'b', 'c', 'd', 'f' };
+            var input = new int[] { 1, 3, 2, 8, 5, 4 };
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata6.FindMissingLetter_kata_2(input);
+            var result = Kata6.SortArray(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
 
-            Console.WriteLine(result);
+            foreach (var item in result)
+            {
+                Console.Write(item + ", ");
+            }
+
 
             Console.WriteLine("RunTime: " + milliseconds);
         }
