@@ -30,11 +30,7 @@ namespace CSharp
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
 
-            foreach (var item in result)
-            {
-                Console.Write(item + ", ");
-            }
-
+            Console.WriteLine(result);
 
             Console.WriteLine("RunTime: " + milliseconds);
         }
