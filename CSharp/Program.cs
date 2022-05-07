@@ -7,6 +7,7 @@ using CSharp._4Kyu;
 using System.Diagnostics;
 using System.Text;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace CSharp
 {
@@ -14,23 +15,36 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            RunMe();
+            var input = "abcdefgh";
+
+            var result = Regex.Matches(input, @"\w{2}");
+
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+
+            // RunMe();
         }
 
         static void RunMe()
         {
-            // var input = new[] { -2, 2, 2, 2 };
-            var input = GetFromFile("./temp/longArray1.txt");
+            var input = "abcdef";
+            // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata6.GetUnique_kata(input);
+            var result = Kata6.SplitString(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
 
-            Console.WriteLine(result);
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+
 
             Console.WriteLine("RunTime: " + milliseconds);
         }
