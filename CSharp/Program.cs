@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using CSharp._7Kyu;
 using CSharp._6Kyu;
+using CSharp._5kyu;
 using CSharp._4Kyu;
 using System.Diagnostics;
 using System.Text;
@@ -19,13 +20,13 @@ namespace CSharp
 
         static void RunMe()
         {
-            // var input = new[] { -2, 2, 2, 2 };
-            var input = GetFromFile("./temp/longArray1.txt");
+            var input = "Pig latin is cool !!";
+            // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata6.GetUnique_kata(input);
+            var result = Kata5.PigIt_Kata(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
