@@ -8,6 +8,7 @@ using CSharp._4Kyu;
 using System.Diagnostics;
 using System.Text;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace CSharp
 {
@@ -15,7 +16,16 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            RunMe();
+            var input = "abcdefgh";
+
+            var result = Regex.Matches(input, @"\w{2}");
+
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+
+            // RunMe();
         }
 
         static void RunMe()
@@ -31,7 +41,11 @@ namespace CSharp
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
 
-            Console.WriteLine(result);
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+
 
             Console.WriteLine("RunTime: " + milliseconds);
         }
