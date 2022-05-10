@@ -16,35 +16,28 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var input = "abcdefgh";
-
-            var result = Regex.Matches(input, @"\w{2}");
-
-            foreach (var item in result)
-            {
-                Console.WriteLine(item);
-            }
-
-            // RunMe();
+            RunMe();
         }
 
         static void RunMe()
         {
-            var input = "Pig latin is cool !!";
+            var input = new int[] { 1, 2, 0, 1, 0, 1, 0, 3, 0, 1 };
             // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata5.PigIt_Kata(input);
+            var result = Kata5.MoveZeroes_Kata(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
 
-            foreach (var item in result)
-            {
-                Console.WriteLine(item);
-            }
+            Console.WriteLine(String.Join(",", result));
+            Console.WriteLine(String.Join(",", new int[] { 1, 2, 1, 1, 3, 1, 0, 0, 0, 0 }));
+            // foreach (var item in result)
+            // {
+            //     Console.Write(item);
+            // }
 
 
             Console.WriteLine("RunTime: " + milliseconds);
