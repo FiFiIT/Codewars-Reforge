@@ -21,13 +21,13 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = new int[] { 1, 2, 0, 1, 0, 1, 0, 3, 0, 1 };
+            var input = ")((((";
             // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata5.MoveZeroes_Kata(input);
+            var result = Kata5.ValidParentheses(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
