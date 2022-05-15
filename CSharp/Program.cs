@@ -15,35 +15,29 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var input = "abcdefgh";
-
-            var result = Regex.Matches(input, @"\w{2}");
-
-            foreach (var item in result)
-            {
-                Console.WriteLine(item);
-            }
-
-            // RunMe();
+            RunMe();
         }
 
         static void RunMe()
         {
-            var input = "abcdef";
+            var input = "(BfwTLPP!vJ@BYETECVtXRHArbU@VDaGn!";
             // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata6.SplitString(input);
+            var result = Kata6.DuplicateEncode(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
 
-            foreach (var item in result)
-            {
-                Console.WriteLine(item);
-            }
+            var expected = "((((())))())())())(()()((())()()()";
+            Console.WriteLine($"{expected} {expected == result}");
+            Console.WriteLine(result);
+            // foreach (var item in result)
+            // {
+            //     Console.WriteLine(item);
+            // }
 
 
             Console.WriteLine("RunTime: " + milliseconds);
