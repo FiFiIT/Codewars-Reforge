@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using CSharp._7Kyu;
 using CSharp._6Kyu;
+using CSharp._5kyu;
 using CSharp._4Kyu;
 using System.Diagnostics;
 using System.Text;
@@ -20,23 +21,21 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = "(BfwTLPP!vJ@BYETECVtXRHArbU@VDaGn!";
+            var input = new string[] { "NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST" };
             // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata6.DuplicateEncode(input);
+            var result = Kata5.dirReduc(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
 
-            var expected = "((((())))())())())(()()((())()()()";
-            Console.WriteLine($"{expected} {expected == result}");
-            Console.WriteLine(result);
-            // foreach (var item in result)
+            Console.WriteLine(String.Join(", ", result));
+            //foreach (var item in result)
             // {
-            //     Console.WriteLine(item);
+            //     Console.Write(item);
             // }
 
 
