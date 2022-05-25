@@ -18,11 +18,14 @@ function findEvenIndex(arr) {
   return index;
 }
 // Kata
-{
-  const sum = (a, from, to) => a.slice(from, to).reduce((a, b) => a + b, 0);
-  const findEvenIndex = (a) =>
-    a.findIndex((el, i) => sum(a, 0, i) === sum(a, i + 1));
-}
 
-var result = findEvenIndex([1, 2, 3, 4, 3, 2, 1]);
-console.log(result);
+const sum = (a, from, to) => a.slice(from, to).reduce((a, b) => a + b, 0);
+const findEvenIndex_kata = (a) =>
+  a.findIndex((el, i) => sum(a, 0, i) === sum(a, i + 1));
+
+var input = [1, 2, 3, 4, 3, 2, 1];
+// var result = findEvenIndex_kata([1, 2, 3, 4, 3, 2, 1]);
+// console.log(result);
+
+console.log(input.slice(0, 1));
+console.log(input.slice(1));

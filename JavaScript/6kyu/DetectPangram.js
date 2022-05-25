@@ -9,6 +9,7 @@ function isPangram(string) {
   return abc.length == 0;
 }
 
+// The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
 function isPangram_kata(string) {
   return "abcdefghijklmnopqrstuvwxyz"
     .split("")

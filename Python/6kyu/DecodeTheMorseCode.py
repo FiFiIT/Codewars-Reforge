@@ -1,14 +1,3 @@
-def decode_morse(morse_code):
-    # ToDo: Accept dots, dashes and spaces, return human-readable message
-    result = []
-
-    for code in morse_code.strip().split("   "):
-        word = "".join([MORSE_CODE_REVERSED[m] for m in code.split(" ") if m])
-        result.append(word)
-
-    return " ".join(result)
-
-
 MORSE_CODE = {'A': '.-',     'B': '-...',   'C': '-.-.',
               'D': '-..',    'E': '.',      'F': '..-.',
               'G': '--.',    'H': '....',   'I': '..',
@@ -28,6 +17,18 @@ MORSE_CODE = {'A': '.-',     'B': '-...',   'C': '-.-.',
               }
 
 MORSE_CODE_REVERSED = {value: key for key, value in MORSE_CODE.items()}
+
+
+def decode_morse(morse_code):
+    # ToDo: Accept dots, dashes and spaces, return human-readable message
+    result = []
+
+    for code in morse_code.strip().split("   "):
+        word = "".join([MORSE_CODE_REVERSED[m] for m in code.split(" ") if m])
+        result.append(word)
+
+    return " ".join(result)
+
 
 result = decode_morse(
     '      ...---... -.-.--   - .... .   --.- ..- .. -.-. -.-   -... .-. --- .-- -.   ..-. --- -..-   .--- ..- -- .--. ...   --- ...- . .-.   - .... .   .-.. .- --.. -.--   -.. --- --. .-.-.-  ')

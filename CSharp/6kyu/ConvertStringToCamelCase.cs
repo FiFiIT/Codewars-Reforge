@@ -8,6 +8,8 @@ namespace CSharp._6Kyu
     {
         public static string ToCamelCase_Kata(string str)
         {
+            // match.Groups[0] is always the same as match.Value, which is the entire match.
+            // match.Groups[1] is the first capturing group in your regular expression.
             return Regex.Replace(str, @"[-_](\w)", m => m.Groups[1].Value.ToUpper());
         }
         public static string ToCamelCase(string str)

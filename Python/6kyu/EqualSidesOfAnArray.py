@@ -10,7 +10,7 @@ def find_even_index(arr):
     return min(m)
 
 
-arr = [1, 2, 3, 4, 5, 6]
+arr = [1, 2, 3, 1, 0, 6]
 result = find_even_index(arr)
-print(result)
-# print(arr[:3])
+
+print(arr[:result], arr[result+1:]) if result else print(result)
