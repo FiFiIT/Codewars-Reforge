@@ -21,20 +21,20 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input0 = "abba";
+            var input0 = (ulong)4895;
             var input = new List<String>() { "aabb", "abcd", "bbaa", "dada" };
             // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata5.Rgb(0, 255, 255);
+            var result = Kata5.productFib(input0);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
 
-            Console.WriteLine(result);
-            // Console.WriteLine(String.Join(", ", result));
+            // Console.WriteLine(result);
+            Console.WriteLine(String.Join(", ", result));
             //foreach (var item in result)
             // {
             //     Console.Write(item);
