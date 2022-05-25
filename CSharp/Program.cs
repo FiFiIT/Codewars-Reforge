@@ -21,18 +21,20 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = new string[] { "NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST" };
+            var input0 = "abba";
+            var input = new List<String>() { "aabb", "abcd", "bbaa", "dada" };
             // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata5.dirReduc(input);
+            var result = Kata5.Rgb(0, 255, 255);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
 
-            Console.WriteLine(String.Join(", ", result));
+            Console.WriteLine(result);
+            // Console.WriteLine(String.Join(", ", result));
             //foreach (var item in result)
             // {
             //     Console.Write(item);
@@ -48,7 +50,7 @@ namespace CSharp
             string[] lines = File.ReadAllLines(path);
             foreach (var line in lines)
             {
-                foreach (var x in line.Split(' ', StringSplitOptions.RemoveEmptyEntries))
+                foreach (var x in line.Split(" ", StringSplitOptions.RemoveEmptyEntries))
                 {
                     result.Add(int.Parse(x));
                 }
