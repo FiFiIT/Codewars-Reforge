@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
-using CSharp._7Kyu;
-using CSharp._6Kyu;
 using CSharp._5kyu;
-using CSharp._4Kyu;
 using System.Diagnostics;
-using System.Text;
 using System.IO;
-using System.Text.RegularExpressions;
 
 namespace CSharp
 {
@@ -16,19 +10,28 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
+            // char c = 't';
+            // int step = 65;
+            // c = c.ToString()[0];
+
+            // if ((int)c > 90) step = 97;
+
+            // var result = ((int)c - step + 1);
+
+            // Console.WriteLine((char)(result + step));
             RunMe();
         }
 
         static void RunMe()
         {
-            var input0 = "2000 10003 1234000 44444444 9999 11 11 22 123";
-            var input = new List<String>() { "aabb", "abcd", "bbaa", "dada" };
+            var input = "test";
+            var input_1 = new List<String>() { "aabb", "abcd", "bbaa", "dada" };
             // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata5.OrderWeight_Kata_1(input0);
+            var result = Kata5.Rot13(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
