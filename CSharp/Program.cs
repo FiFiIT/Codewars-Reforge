@@ -31,7 +31,7 @@ namespace CSharp
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata5.MaxSequence(input);
+            var result = Kata5.MaxSequence_kata_2(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
