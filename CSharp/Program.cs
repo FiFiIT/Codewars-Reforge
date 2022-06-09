@@ -24,14 +24,14 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = "test";
+            var input = new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
             var input_1 = new List<String>() { "aabb", "abcd", "bbaa", "dada" };
             // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata5.Rot13(input);
+            var result = Kata5.MaxSequence(input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
