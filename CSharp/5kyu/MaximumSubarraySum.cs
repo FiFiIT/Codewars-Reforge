@@ -8,26 +8,31 @@ namespace CSharp._5kyu
     {
         public static int MaxSequence(int[] arr)
         {
-            int sum = 0;
-            int tmpSum = 0;
-            int endIndex = 0;
-            for (int i = 0; i < arr.Length; i++)
+            int max = 0, res = 0, sum = 0;
+
+            foreach (int item in arr)
             {
-                endIndex = arr.Length;
-                while (endIndex > i)
-                {
-                    tmpSum = arr.Where((v, idx) => idx >= i && idx < endIndex).Sum();
-                    if (tmpSum > sum)
-                    {
-                        sum = tmpSum;
-                    }
-
-                    endIndex--;
-                }
-
+                sum += item;
+                max = sum > max ? max : sum;
+                res = res > sum - max ? res : sum - max;
             }
 
-            return sum;
+            return res;
+        }
+        public static int MaxSequence_kata_2(int[] arr)
+        {
+            int max = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int sum = 0;
+                for (int j = i; j < arr.Length; j++)
+                {
+                    sum += arr[j];
+                    max = Math.Max(sum, max);
+                }
+            }
+
+            return max;
         }
     }
 }
