@@ -59,6 +59,7 @@ function validParentheses_kata_3(parens) {
 
 function validParentheses_kata_4(parens) {
   var re = /\(\)/g;
+  parens = parens.replace(/[^\(\)]/g, "");
 
   console.log(parens);
   while (re.test(parens)) {
@@ -69,7 +70,7 @@ function validParentheses_kata_4(parens) {
   return !parens;
 }
 
-var result = validParentheses_kata_4("()(())))");
+var result = validParentheses_kata_4("(hi)(())");
 console.log(result);
 
 // "(" = 40

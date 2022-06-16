@@ -6,3 +6,5 @@ input = ['aabb', 'abcd', 'bbaa', 'dada']
 input2 = ['crazer', 'carer', 'racar', 'caers', 'racer']
 result = anagrams('racer', input2)
 print(result)
+
+print(sorted(input))
