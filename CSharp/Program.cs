@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CSharp._5kyu;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 
 namespace CSharp
 {
@@ -10,28 +11,19 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            // char c = 't';
-            // int step = 65;
-            // c = c.ToString()[0];
-
-            // if ((int)c > 90) step = 97;
-
-            // var result = ((int)c - step + 1);
-
-            // Console.WriteLine((char)(result + step));
             RunMe();
         }
 
         static void RunMe()
         {
-            var input = new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+            var input = "moonmEn" + new String('x', 30000);
             var input_1 = new List<String>() { "aabb", "abcd", "bbaa", "dada" };
             // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata5.MaxSequence_kata_2(input);
+            var result = Kata5.Scramble_kata_1(input, input);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
