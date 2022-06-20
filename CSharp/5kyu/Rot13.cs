@@ -16,14 +16,19 @@ namespace CSharp._5kyu
         {
             if (!Char.IsLetter(c)) return c;
 
-            int step = 65;
+            if (Char.ToLower(c) > 'm')
+            {
+                return (char)(c - 13);
+            }
+            return (char)(c + 13);
+            // int step = 65;
 
-            if (c > 90) step = 97;
+            // if (c > 90) step = 97;
 
-            c = c.ToString()[0];
-            var result = (c - step + 13) % 26;
+            // c = c.ToString()[0];
+            // var result = (c - step + 13) % 26;
 
-            return (char)(result + step);
+            // return (char)(result + step);
         }
 
         public static bool IsApha(this char c) => Regex.IsMatch(c.ToString(), "[a-zA-Z]");

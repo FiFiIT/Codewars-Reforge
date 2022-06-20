@@ -1,4 +1,4 @@
-function pigIt_fifi(str) {
+function pigIt(str) {
   return str.replace(/\w+/g, (m) => m.slice(1) + m[0] + "ay");
 }
 
