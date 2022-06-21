@@ -16,24 +16,28 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = "moonmEn" + new String('x', 30000);
+            var input = new string[] { "http://github.com/carbonfive/raygun", "http://www.zombie-bites.com", "https://www.cnet.com", "pornhub.com" };
             var input_1 = new List<String>() { "aabb", "abcd", "bbaa", "dada" };
             // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata5.Scramble_kata_1(input, input);
+            var result = new List<string>();
+            foreach (var url in input)
+            {
+                result.Add(Kata5.DomainName(url));
+            }
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
 
-            Console.WriteLine(result);
+            //Console.WriteLine(result);
             // Console.WriteLine(String.Join(", ", result));
-            //foreach (var item in result)
-            // {
-            //     Console.Write(item);
-            // }
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
 
 
             Console.WriteLine("RunTime: " + milliseconds);

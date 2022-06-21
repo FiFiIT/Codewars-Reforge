@@ -1,8 +1,3 @@
-from attr import has
-from black import out
-from regex import F
-
-
 def generate_hashtag(s):
     output = "#"
 
