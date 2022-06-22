@@ -16,17 +16,17 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = new string[] { "http://github.com/carbonfive/raygun", "http://www.zombie-bites.com", "https://www.cnet.com", "pornhub.com" };
-            var input_1 = new List<String>() { "aabb", "abcd", "bbaa", "dada" };
+            var input = new string[] { "foobar000", "foo", "foobar001", "foobar99", "foobar099", "" };
+            // var input_1 = new List<String>() { "aabb", "abcd", "bbaa", "dada" };
             // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
             var result = new List<string>();
-            foreach (var url in input)
+            foreach (var item in input)
             {
-                result.Add(Kata5.DomainName(url));
+                result.Add(Kata5.IncrementString(item));
             }
 
             stopWath.Stop();
