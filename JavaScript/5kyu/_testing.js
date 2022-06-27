@@ -10,4 +10,6 @@ describe("5kyu Tests", () => {
     assert.strictEqual(domainName("www.xakep.ru"), "xakep");
     assert.strictEqual(domainName("https://youtube.com"), "youtube");
   });
+
+  it("");
 });

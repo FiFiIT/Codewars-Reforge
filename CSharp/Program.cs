@@ -16,7 +16,7 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = new int[] { 5, 25, 531 };
+            var input = new int[][] { new int[5] { 5, 5, 5, 3, 3 }, new int[5] { 2, 3, 4, 6, 2 }, new int[5] { 4, 4, 4, 3, 3 }, new int[5] { 2, 4, 4, 5, 4 } };
             // var input_1 = new List<String>() { "aabb", "abcd", "bbaa", "dada" };
             // var input = GetFromFile("./temp/longArray1.txt");
 
@@ -26,7 +26,7 @@ namespace CSharp
             var result = new List<int>();
             foreach (var item in input)
             {
-                result.Add(Kata5.TrailingZeros(item));
+                result.Add(Kata5.Score(item));
             }
 
             stopWath.Stop();
