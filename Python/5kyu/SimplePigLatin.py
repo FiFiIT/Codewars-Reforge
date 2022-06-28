@@ -14,4 +14,4 @@ def pig_it_kata(text):
     return " ".join(pig(x) if x.isalnum() else x for x in text.split())
 
 
-print(pig_it_kata('Pig latin is cool !'))
+# print(pig_it_kata('Pig latin is cool !'))

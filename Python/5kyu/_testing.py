@@ -1,6 +1,9 @@
 import unittest
 from SimplePigLatin import pig_it
 from PeteTheBaker import cakes
+from GreedIsGood import score
+
+# run specific test: py .\_testing.py Testing_5kyu.test_dice_score
 
 
 class Testing_5kyu(unittest.TestCase):
@@ -24,6 +27,12 @@ class Testing_5kyu(unittest.TestCase):
                   "sugar": 150, "milk": 100, "oil": 100}
         available = {"sugar": 500, "flour": 2000, "milk": 2000}
         self.assertEqual(cakes(recipe, available), 0, 'example #2')
+
+    def test_dice_score(self):
+        rolls = [2, 3, 4, 6, 2]
+        expected = 0
+        actual = score(rolls)
+        self.assertEqual(expected, actual, "[2, 3, 4, 6, 2] should be 0")
 
 
 if __name__ == "__main__":
