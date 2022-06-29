@@ -4,6 +4,7 @@ using CSharp._5kyu;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 
 namespace CSharp
 {
@@ -16,17 +17,17 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = new int[][] { new int[5] { 5, 5, 5, 3, 3 }, new int[5] { 2, 3, 4, 6, 2 }, new int[5] { 4, 4, 4, 3, 3 }, new int[5] { 2, 4, 4, 5, 4 } };
+            var input = new BigInteger[] { new BigInteger(5) };
             // var input_1 = new List<String>() { "aabb", "abcd", "bbaa", "dada" };
             // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = new List<int>();
+            var result = new List<BigInteger>();
             foreach (var item in input)
             {
-                result.Add(Kata5.Score(item));
+                result.Add(Kata5.perimeter(item));
             }
 
             stopWath.Stop();
