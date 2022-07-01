@@ -17,17 +17,17 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = new BigInteger[] { new BigInteger(5) };
+            var input = new int[] { 7775460 };
             // var input_1 = new List<String>() { "aabb", "abcd", "bbaa", "dada" };
             // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = new List<BigInteger>();
+            var result = new List<string>();
             foreach (var item in input)
             {
-                result.Add(Kata5.perimeter(item));
+                result.Add(Kata5.factors(item));
             }
 
             stopWath.Stop();

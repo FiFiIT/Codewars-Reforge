@@ -1,7 +1,7 @@
 import { strict as assert } from "assert";
 import { domainName } from "./ExtractTheDomainName.js";
 import { score } from "./GreedIsGood.js";
-
+import { primeFactors } from "./PrimeInNumbers.js";
 // mocha ./_testing.js -g 'Scorer Function'
 
 describe("5kyu Tests", () => {
@@ -22,5 +22,11 @@ describe("Greed is Good", () => {
   });
   it("[2, 4, 4, 5, 4] should be 450", () => {
     assert.strictEqual(score([2, 4, 4, 5, 4]), 450);
+  });
+});
+
+describe("Prime in numbers", () => {
+  it("Testing for 7775460", () => {
+    assert.strictEqual(primeFactors(7775460), "(2**2)(3**3)(5)(7)(11**2)(17)");
   });
 });
