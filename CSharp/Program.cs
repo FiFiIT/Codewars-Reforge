@@ -4,6 +4,7 @@ using CSharp._5kyu;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 
 namespace CSharp
 {
@@ -16,7 +17,9 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = new int[][] { new int[2] { 1, 246 } };
+            var input = new int[] { 7775460 };
+            // var input_1 = new List<String>() { "aabb", "abcd", "bbaa", "dada" };
+            // var input = GetFromFile("./temp/longArray1.txt");
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
@@ -24,7 +27,7 @@ namespace CSharp
             var result = new List<string>();
             foreach (var item in input)
             {
-                result.Add(Kata5.listSquared_kata_1(item[0], item[1]));
+                result.Add(Kata5.factors(item));
             }
 
             stopWath.Stop();
