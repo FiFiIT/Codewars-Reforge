@@ -16,17 +16,15 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = new int[][] { new int[5] { 5, 5, 5, 3, 3 }, new int[5] { 2, 3, 4, 6, 2 }, new int[5] { 4, 4, 4, 3, 3 }, new int[5] { 2, 4, 4, 5, 4 } };
-            // var input_1 = new List<String>() { "aabb", "abcd", "bbaa", "dada" };
-            // var input = GetFromFile("./temp/longArray1.txt");
+            var input = new int[][] { new int[2] { 1, 246 } };
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = new List<int>();
+            var result = new List<string>();
             foreach (var item in input)
             {
-                result.Add(Kata5.Score(item));
+                result.Add(Kata5.listSquared_kata_1(item[0], item[1]));
             }
 
             stopWath.Stop();
