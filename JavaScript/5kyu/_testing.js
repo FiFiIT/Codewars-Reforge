@@ -2,6 +2,7 @@ import { strict as assert } from "assert";
 import { domainName } from "./ExtractTheDomainName.js";
 import { score } from "./GreedIsGood.js";
 import { primeFactors } from "./PrimeInNumbers.js";
+import { validate } from "./RegexPasswordValidation.js";
 // mocha ./_testing.js -g 'Scorer Function'
 
 describe("5kyu Tests", () => {
@@ -28,5 +29,32 @@ describe("Greed is Good", () => {
 describe("Prime in numbers", () => {
   it("Testing for 7775460", () => {
     assert.strictEqual(primeFactors(7775460), "(2**2)(3**3)(5)(7)(11**2)(17)");
+  });
+});
+
+describe("Regex Password Validation", () => {
+  it("djI38D55 - Expected true", () => {
+    assert.strictEqual(validate("djI38D55"), true);
+  });
+  it("a2.d412 - Expected false", () => {
+    assert.strictEqual(validate("a2.d412"), false);
+  });
+  it("JHD5FJ53 - Expected false", () => {
+    assert.strictEqual(validate("JHD5FJ53"), false);
+  });
+  it("!fdjn345 - Expected false", () => {
+    assert.strictEqual(validate("!fdjn345"), false);
+  });
+  it("jfkdfj3j - Expected false", () => {
+    assert.strictEqual(validate("jfkdfj3j"), false);
+  });
+  it("123 - Expected false", () => {
+    assert.strictEqual(validate("123"), false);
+  });
+  it("abc - Expected false", () => {
+    assert.strictEqual(validate("abc"), false);
+  });
+  it("Password123 - Expected true", () => {
+    assert.strictEqual(validate("Password123"), true);
   });
 });
