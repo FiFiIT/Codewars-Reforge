@@ -17,18 +17,24 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = new List<string>() {
-                "fjd3IR9", "ghdfj32", "DSJKHD23", "dsF43", "4fdg5Fj3", "DHSJdhjsU", "fjd3IR9.;", "fjd3  IR9", "djI38D55", "a2.d412", "JHD5FJ53", "!fdjn345", "jfkdfj3j", "123", "abc", "123abcABC", "ABC123abc", "Password123"
+            var input = new List<long[]>()
+            {
+                new long[] {2,2,50},
+                new long[] {2,100,110},
+                new long[] {4,100,110},
+                new long[] {2,100,103},
+                new long[] {6,100,110},
+                new long[] {8,300,400},
+                new long[] {10,300,400},
             };
-
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = new Dictionary<string, bool>();
+            var result = new List<long[]>();
             foreach (var item in input)
             {
-                result.Add(item, Kata5.validate(item));
+                result.Add(Kata5.Gap((int)item[0], item[1], item[2]));
             }
 
             stopWath.Stop();
@@ -40,7 +46,14 @@ namespace CSharp
             int pad = input.Max(p => p.Length) + 1;
             foreach (var item in result)
             {
-                System.Console.WriteLine(item.Key.PadRight(pad) + "---> " + item.Value);
+                if (item != null)
+                {
+                    System.Console.WriteLine($"[{item[0]}, {item[1]}]");
+                }
+                else
+                {
+                    System.Console.WriteLine("NULL");
+                }
             }
 
 

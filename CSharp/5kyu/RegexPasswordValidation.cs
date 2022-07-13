@@ -13,7 +13,7 @@ namespace CSharp._5kyu
             var lowerCaseLetters = Regex.Match(password, @".*[a-z]");
             var haveNumber = Regex.Match(password, @".*\d");
 
-            return false;
+            return alphanumericAtLeastSixLong.Success == true && upperCaseLetters.Success == true && lowerCaseLetters.Success == true && haveNumber.Success == true;
         }
     }
 }
