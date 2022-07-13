@@ -17,18 +17,18 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = new List<Node>() {
-                Kata5.createChain(15, 12)
+            var input = new List<string>() {
+                "fjd3IR9", "ghdfj32", "DSJKHD23", "dsF43", "4fdg5Fj3", "DHSJdhjsU", "fjd3IR9.;", "fjd3  IR9", "djI38D55", "a2.d412", "JHD5FJ53", "!fdjn345", "jfkdfj3j", "123", "abc", "123abcABC", "ABC123abc", "Password123"
             };
 
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = new List<int>();
+            var result = new Dictionary<string, bool>();
             foreach (var item in input)
             {
-                result.Add(Kata5.getLoopSize(item));
+                result.Add(item, Kata5.validate(item));
             }
 
             stopWath.Stop();
@@ -36,9 +36,11 @@ namespace CSharp
 
             //Console.WriteLine(result);
             // Console.WriteLine(String.Join(", ", result));
+
+            int pad = input.Max(p => p.Length) + 1;
             foreach (var item in result)
             {
-                System.Console.WriteLine(item);
+                System.Console.WriteLine(item.Key.PadRight(pad) + "---> " + item.Value);
             }
 
 
