@@ -3,7 +3,18 @@ import { domainName } from "./ExtractTheDomainName.js";
 import { score } from "./GreedIsGood.js";
 import { primeFactors } from "./PrimeInNumbers.js";
 import { validate } from "./RegexPasswordValidation.js";
+import { gap } from "./GapInPrimes.js";
 // mocha ./_testing.js -g 'Scorer Function'
+
+describe("Gap in Primes", () => {
+  it("Basic tests", () => {
+    assert.strictEqual(gap(2, 100, 110), [101, 103]);
+    assert.strictEqual(gap(4, 100, 110), [103, 107]);
+    assert.strictEqual(gap(6, 100, 110), null);
+    assert.strictEqual(gap(8, 300, 400), [359, 367]);
+    assert.strictEqual(gap(10, 300, 400), [337, 347]);
+  });
+});
 
 describe("5kyu Tests", () => {
   it("Extract the domain name from a URL", () => {

@@ -28,4 +28,4 @@ const findDivisors = (n) => {
   return div;
 };
 
-console.log(listSquared(1, 246));
+console.log(findDivisors(361));

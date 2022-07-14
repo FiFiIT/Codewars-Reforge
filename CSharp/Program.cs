@@ -17,24 +17,18 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = new List<long[]>()
+            var input = new List<List<int>>()
             {
-                new long[] {2,2,50},
-                new long[] {2,100,110},
-                new long[] {4,100,110},
-                new long[] {2,100,103},
-                new long[] {6,100,110},
-                new long[] {8,300,400},
-                new long[] {10,300,400},
+                new List<int>(){50, 55, 56, 57, 58},
             };
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = new List<long[]>();
+            var result = new List<int?>();
             foreach (var item in input)
             {
-                result.Add(Kata5.Gap((int)item[0], item[1], item[2]));
+                result.Add(Kata5.chooseBestSum(163, 3, item));
             }
 
             stopWath.Stop();
@@ -43,17 +37,9 @@ namespace CSharp
             //Console.WriteLine(result);
             // Console.WriteLine(String.Join(", ", result));
 
-            int pad = input.Max(p => p.Length) + 1;
             foreach (var item in result)
             {
-                if (item != null)
-                {
-                    System.Console.WriteLine($"[{item[0]}, {item[1]}]");
-                }
-                else
-                {
-                    System.Console.WriteLine("NULL");
-                }
+                Console.WriteLine(item);
             }
 
 
