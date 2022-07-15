@@ -17,9 +17,11 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = new List<List<int>>()
+            var input = new Travel[]
             {
-                new List<int>(){50, 55, 56, 57, 58},
+                new Travel() { Visit = 3, Towns = new List<int>() { 50, 55, 56, 57, 58 }, Distance = 163},
+                new Travel() { Visit = 3, Towns = new List<int>() { 91, 74, 73, 85, 73, 81, 87 }, Distance = 230},
+                new Travel() { Visit = 2, Towns = new List<int>() { 91, 74, 73, 85, 73, 81, 87 }, Distance = 331}
             };
 
             Stopwatch stopWath = new Stopwatch();
@@ -28,7 +30,7 @@ namespace CSharp
             var result = new List<int?>();
             foreach (var item in input)
             {
-                result.Add(Kata5.chooseBestSum(163, 3, item));
+                result.Add(Kata5.chooseBestSum(item.Distance, item.Visit, item.Towns));
             }
 
             stopWath.Stop();
