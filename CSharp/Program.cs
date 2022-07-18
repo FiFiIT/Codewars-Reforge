@@ -51,7 +51,7 @@ namespace CSharp
             var result = new List<int?>();
             foreach (var item in input)
             {
-                result.Add(Kata5.chooseBestSum(item.Distance, item.Visit, item.Towns));
+                result.Add(Kata5.chooseBestSum_Kata_1(item.Distance, item.Visit, item.Towns));
             }
 
             stopWath.Stop();
