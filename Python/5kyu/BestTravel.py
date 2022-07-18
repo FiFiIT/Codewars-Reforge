@@ -15,7 +15,8 @@ def choose_best(t, k, ls):
         b = choose_best(t-v, k-1, ls[i+1:])
         if b < 0:
             continue
-        if b > best and b < t:
+        b += v
+        if b > best and b <= t:
             best = b
 
     return best
