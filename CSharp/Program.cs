@@ -12,7 +12,28 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            RunMe();
+            var collection = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 };
+            var helper = new PagnationHelper<int>(collection, 10);
+
+            Console.WriteLine(helper.ItemCount);
+            Console.WriteLine(helper.PageCount);
+
+            var indices = new int[] { -1, 12, 24 };
+            foreach (var index in indices)
+            {
+                var page = helper.PageIndex(index);
+                Console.WriteLine($"{index} is on page {page}");
+            }
+
+            var pages = new int[] { -1, 1, 3 };
+            foreach (var page in pages)
+            {
+                var items = helper.PageItemCount(page);
+                System.Console.WriteLine($"We have {items} items on page {page}");
+            }
+
+
+            // RunMe();
         }
 
         static void RunMe()
