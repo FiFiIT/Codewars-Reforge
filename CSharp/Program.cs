@@ -12,59 +12,54 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var collection = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 };
-            var helper = new PagnationHelper<int>(collection, 10);
-
-            Console.WriteLine(helper.ItemCount);
-            Console.WriteLine(helper.PageCount);
-
-            var indices = new int[] { -1, 12, 24 };
-            foreach (var index in indices)
-            {
-                var page = helper.PageIndex(index);
-                Console.WriteLine($"{index} is on page {page}");
-            }
-
-            var pages = new int[] { -1, 1, 3 };
-            foreach (var page in pages)
-            {
-                var items = helper.PageItemCount(page);
-                System.Console.WriteLine($"We have {items} items on page {page}");
-            }
-
-
-            // RunMe();
+            RunMe();
         }
 
         static void RunMe()
         {
-            var input = new Travel[]
-            {
-                new Travel() { Visit = 3, Towns = new List<int>() { 50, 55, 56, 57, 58 }, Distance = 163},
-                new Travel() { Visit = 3, Towns = new List<int>() { 91, 74, 73, 85, 73, 81, 87 }, Distance = 230},
-                new Travel() { Visit = 2, Towns = new List<int>() { 91, 74, 73, 85, 73, 81, 87 }, Distance = 331}
-            };
+            var input = new List<int[][]>();
+            input.Add(new int[][]
+                {
+                new int[] {5, 3, 4, 6, 7, 8, 9, 1, 2},
+                new int[] {6, 7, 2, 1, 9, 5, 3, 4, 8},
+                new int[] {1, 9, 8, 3, 4, 2, 5, 6, 7},
+                new int[] {8, 5, 9, 7, 6, 1, 4, 2, 3},
+                new int[] {4, 2, 6, 8, 5, 3, 7, 9, 1},
+                new int[] {7, 1, 3, 9, 2, 4, 8, 5, 6},
+                new int[] {9, 6, 1, 5, 3, 7, 2, 8, 4},
+                new int[] {2, 8, 7, 4, 1, 9, 6, 3, 5},
+                new int[] {3, 4, 5, 2, 8, 6, 1, 7, 9},
+                });
+
+            input.Add(new int[][]
+                {
+                new int[] {5, 3, 4, 6, 7, 8, 9, 1, 2},
+                new int[] {6, 7, 2, 1, 9, 5, 3, 4, 8},
+                new int[] {1, 9, 8, 3, 0, 2, 5, 6, 7},
+                new int[] {8, 5, 0, 7, 6, 1, 4, 2, 3},
+                new int[] {4, 2, 6, 8, 5, 3, 7, 9, 1},
+                new int[] {7, 0, 3, 9, 2, 4, 8, 5, 6},
+                new int[] {9, 6, 1, 5, 3, 7, 2, 8, 4},
+                new int[] {2, 8, 7, 4, 1, 9, 6, 3, 5},
+                new int[] {3, 0, 0, 2, 8, 6, 1, 7, 9},
+                });
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = new List<int?>();
+            var result = new List<string>();
             foreach (var item in input)
             {
-                result.Add(Kata5.chooseBestSum_Kata_1(item.Distance, item.Visit, item.Towns));
+                result.Add(Kata5.DoneOrNot(item));
             }
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
 
-            //Console.WriteLine(result);
-            // Console.WriteLine(String.Join(", ", result));
-
             foreach (var item in result)
             {
                 Console.WriteLine(item);
             }
-
 
             Console.WriteLine("RunTime: " + milliseconds);
         }
