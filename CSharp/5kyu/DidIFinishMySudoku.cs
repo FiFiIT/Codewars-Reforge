@@ -24,20 +24,24 @@ namespace CSharp._5kyu
             }
         }
 
-        private static int[][] Transmute(int[][] board)
+        public static int[][] Transmute(int[][] board)
         {
             var newBoard = new int[9][];
+            for (int i = 0; i < 9; i++)
+            {
+                newBoard[i] = new int[9];
+            }
 
             for (int r = 0; r < 9; r++)
             {
-                for (int r = 0; r < 9; r++)
+                for (int c = 0; c < 9; c++)
                 {
-
+                    newBoard[c][r] = board[r][c];
                 }
             }
 
-            Print2dArray(board);
-            return board;
+            // Print2dArray(newBoard);
+            return newBoard;
         }
 
         private static bool Validate(int[][] board, bool transmute = true)
