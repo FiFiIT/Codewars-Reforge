@@ -30,7 +30,6 @@ namespace CSharp
                 new int[] {2, 8, 7, 4, 1, 9, 6, 3, 5},
                 new int[] {3, 4, 5, 2, 8, 6, 1, 7, 9},
                 });
-
             input.Add(new int[][]
                 {
                 new int[] {5, 3, 4, 6, 7, 8, 9, 1, 2},
@@ -43,7 +42,6 @@ namespace CSharp
                 new int[] {2, 8, 7, 4, 1, 9, 6, 3, 5},
                 new int[] {3, 0, 0, 2, 8, 6, 1, 7, 9},
                 });
-
             input.Add(new int[][]
             {
                 new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9},
