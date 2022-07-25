@@ -19,7 +19,7 @@ const isPrime = (n) => {
   return true;
 };
 
-var result = gap(8, 300, 400);
-console.log(result);
+// var result = gap(8, 300, 400);
+// console.log(result);
 
 export { gap };

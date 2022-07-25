@@ -10,9 +10,9 @@ function domainName_kata_2(url) {
   return url.split(".")[0];
 }
 
-var result = domainName_kata_2(
-  "http://k84xap1b60zgxhbq6lre-vk-0q0.edu/index.php"
-);
-console.log(result);
+// var result = domainName_kata_2(
+//   "http://k84xap1b60zgxhbq6lre-vk-0q0.edu/index.php"
+// );
+// console.log(result);
 
 export { domainName };
