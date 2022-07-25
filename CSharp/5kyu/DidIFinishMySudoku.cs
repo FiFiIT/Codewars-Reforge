@@ -7,13 +7,22 @@ namespace CSharp._5kyu
     {
         public static string DoneOrNot(int[][] board)
         {
-            if (Validate(board))
-            {
-                return "Finished!";
-            }
+            return IsDone(board) ? "Finished!" : "Try again!";
+        }
 
+        private static bool IsDone(int[][] board)
+        {
+            var result = Enumerable.Range(0, 9)
+                .SelectMany(i =>
+                {
+                    var rowsChek = board[i].Sum();
+                    var colsCheck = board.Sum(b => b[i]);
+                    var blockCheck = board.Skip(3 * (i / 3)).Take(3).SelectMany(r => r.Skip(3 * (i % 3)).Take(3)).Sum();
 
-            return "Try again!";
+                    return new[] { rowsChek, colsCheck, blockCheck };
+                });
+
+            return result.Any(i => i != 45);
         }
 
         private static void Print2dArray(int[][] board)
@@ -44,8 +53,24 @@ namespace CSharp._5kyu
             return newBoard;
         }
 
+        public static bool ValidateBlocks(int[][] board)
+        {
+            var blocks = new string[9];
+            for (int r = 0; r < 9; r++)
+            {
+                for (int c = 0; c < 9; c++)
+                {
+                    blocks[c / 3 + (r / 3) * 3] += board[r][c];
+                }
+            }
+
+            return true;
+        }
+
         private static bool Validate(int[][] board, bool transmute = true)
         {
+            var blocks = new string[9];
+
             for (int r = 0; r < 9; r++)
             {
                 if (board[r].Distinct().Count() != 9 || board[r].Max() > 9 || board[r].Min() < 1)
@@ -53,7 +78,13 @@ namespace CSharp._5kyu
                     System.Console.WriteLine(String.Join(", ", board[r]));
                     return false;
                 }
+                for (int c = 0; c < 9; c++)
+                {
+                    blocks[c / 3 + (r / 3) * 3] += board[r][c];
+                }
             }
+
+            if (blocks.Any(b => b.Distinct().Count() != 9)) return false;
 
             if (transmute)
                 return Validate(Transmute(board), false);
