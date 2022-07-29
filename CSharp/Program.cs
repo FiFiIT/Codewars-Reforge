@@ -24,7 +24,7 @@ namespace CSharp
                 // new BigInteger [] {10, BigInteger.Pow(10,10)},
                 // new BigInteger [] {BigInteger.Pow(2, 200), BigInteger.Pow(2, 300)},
                 // new BigInteger [] {BigInteger.Parse("3715290469715693021198967285016729344580685479654510946723"), BigInteger.Parse("68819615221552997273737174557165657483427362207517952651")},
-                //new BigInteger [] {BigInteger.Parse("7855766730821082976131637568737374436558462337178"), BigInteger.Parse("7855766730821082976131637568737374436558462337178")},
+                new BigInteger [] {BigInteger.Parse("3715290469715693021198967285016729344580685479654510946723"), BigInteger.Parse("68819615221552997273737174557165657483427362207517952651")},
              };
 
             Stopwatch stopWath = new Stopwatch();
