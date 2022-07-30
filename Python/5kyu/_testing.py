@@ -3,10 +3,16 @@ from SimplePigLatin import pig_it
 from PeteTheBaker import cakes
 from GreedIsGood import score
 from SumOfPairs import sum_pairs
+from MemoizedFibonacci import fibonacci
 # run specific test: py .\_testing.py Testing_5kyu.test_dice_score
 
 
 class Testing_5kyu(unittest.TestCase):
+    def test_fibbonaci(self):
+        self.assertEqual(fibonacci(50), 12586269025)
+        self.assertEqual(fibonacci(60), 1548008755920)
+        self.assertEqual(fibonacci(70), 190392490709135)
+
     def test_pig_it(self):
         self.assertEqual(pig_it('Pig latin is cool'),
                          'igPay atinlay siay oolcay')
