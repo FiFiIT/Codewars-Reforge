@@ -12,6 +12,7 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
+            Kata5.IpsBetween("0.0.0.0", "255.255.255.255");
             // RunMe();
         }
 

@@ -1,9 +1,14 @@
 function add(n) {
-  if (!b) return n;
-
-  return function (b) {
-    return n + b;
+  var fn = function (x) {
+    return add(n + x);
   };
+
+  fn.valueOf = function () {
+    return n;
+  };
+
+  return fn;
 }
 
-console.log(add(1)(2)(3));
+var r = add(1)(2)(3)(4)(5);
+console.log(r == 16);
