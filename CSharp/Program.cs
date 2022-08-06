@@ -12,7 +12,8 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            Kata5.IpsBetween("0.0.0.0", "255.255.255.255");
+            var result = Kata5.JosephusPermutation(new List<object> { 1, 2, 3, 4, 5, 6, 7 }, 3);
+            Console.WriteLine(String.Join(", ", result));
             // RunMe();
         }
 
