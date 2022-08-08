@@ -12,7 +12,10 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            Kata5.IpsBetween("0.0.0.0", "255.255.255.255");
+            // var result = Kata5.BrainLuck(",[.[-],]", "Codewars" + char.ConvertFromUtf32(0));
+            //var result = Kata5.BrainLuck(",+[-.,+]", "Codewars" + char.ConvertFromUtf32(255));
+            var result = Kata5.BrainLuck(",>,<[>[->+>+<<]>>[-<<+>>]<<<-]>>.", char.ConvertFromUtf32(8) + char.ConvertFromUtf32(9));
+            Console.WriteLine(result);
             // RunMe();
         }
 
