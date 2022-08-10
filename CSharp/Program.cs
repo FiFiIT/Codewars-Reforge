@@ -12,7 +12,12 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            Kata5.IpsBetween("0.0.0.0", "255.255.255.255");
+            var pp = new int[] { 4, 8, 9, 16, 25, 27, 32, 36, 49, 64, 81, 100, 121, 125, 128, 144, 169, 196, 216, 225, 243, 256, 289, 324, 343, 361, 400, 441, 484 };
+            foreach (var i in pp)
+            {
+                Console.WriteLine($"{i} = {Kata5.IsPerfectPower(i)}");
+            }
+
             // RunMe();
         }
 
