@@ -12,11 +12,15 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var pp = new int[] { 4, 8, 9, 16, 25, 27, 32, 36, 49, 64, 81, 100, 121, 125, 128, 144, 169, 196, 216, 225, 243, 256, 289, 324, 343, 361, 400, 441, 484 };
-            foreach (var i in pp)
+            var pass = new string[] { "R", "cziyaq3AskTP69 ", "dw09zSHpuaW1MouobDPTfV", "gY4FdhN", "68bHq5Ux8O75boyUZ", "X6Ujd", "ZR275kMuB1itzQF8ZVg", " DRkmL3XG", "", "Eqe!kpvvn6vNN0_ !", "mqdDvkEBN9PDUiY8ezbXCgi2_F7ZT" };
+
+            foreach (var p in pass)
             {
-                Console.WriteLine($"{i} = {Kata5.IsPerfectPower(i)}");
+                var valid = Kata5.Alphanumeric(p);
+                var pp = $"'{p}'";
+                Console.WriteLine($"{pp.PadRight(pass.Max(p => p.Length) + 2)} is {valid}");
             }
+
 
             // RunMe();
         }
