@@ -12,8 +12,16 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var result = Kata5.JosephusPermutation(new List<object> { 1, 2, 3, 4, 5, 6, 7 }, 3);
-            Console.WriteLine(String.Join(", ", result));
+            var pass = new string[] { "R", "cziyaq3AskTP69 ", "dw09zSHpuaW1MouobDPTfV", "gY4FdhN", "68bHq5Ux8O75boyUZ", "X6Ujd", "ZR275kMuB1itzQF8ZVg", " DRkmL3XG", "", "Eqe!kpvvn6vNN0_ !", "mqdDvkEBN9PDUiY8ezbXCgi2_F7ZT" };
+
+            foreach (var p in pass)
+            {
+                var valid = Kata5.Alphanumeric(p);
+                var pp = $"'{p}'";
+                Console.WriteLine($"{pp.PadRight(pass.Max(p => p.Length) + 2)} is {valid}");
+            }
+
+
             // RunMe();
         }
 
