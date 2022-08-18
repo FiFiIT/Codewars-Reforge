@@ -1,5 +1,5 @@
 var isPP = function (n) {
-  var border = parseInt(n ** 1 / 2);
+  var border = parseInt(Math.sqrt(n));
 
   for (let i = 2; i <= border; border--) {
     var r = Math.round(Math.log(n) / Math.log(border));
