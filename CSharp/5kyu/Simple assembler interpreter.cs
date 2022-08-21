@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -40,7 +41,7 @@ namespace CSharp._5kyu
                         if (result[arg1] != 0)
                         {
                             int dir = GetValue(arg2, result);
-                            if (dir < 0) dir -= 1;
+                            if (dir != 0) dir -= 1;
 
                             i += dir;
                         }
