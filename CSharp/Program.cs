@@ -17,26 +17,17 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = new string[,] {
-                { "mov a 5", "inc a", "dec a", "dec a", "jnz a -1", "inc a", " mov a -10", "mov b a", "inc a", "dec b", "jnz a -2" },
-            };
+            var input = "ROT13 example.";
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = new List<string>();
-            foreach (var item in input)
-            {
-                result.Add(Kata5.Interpret(item));
-            }
+            var result = Kata5.JosSurvivor(7, 3);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
 
-            foreach (var item in result)
-            {
-                Console.WriteLine(String.Join(", ", item));
-            }
+            Console.WriteLine(result);
 
             Console.WriteLine("RunTime: " + milliseconds);
         }

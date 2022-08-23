@@ -8,60 +8,23 @@ namespace CSharp._5kyu
     {
         public static Dictionary<string, int> Interpret(string[] program)
         {
-            var result = new Dictionary<string, int>();
-            var input = new List<string>();
+            var memory = new Dictionary<string, int>();
+            int GetValue(string s) => int.TryParse(s, out var tmp) ? tmp : memory[s];
 
-            string cmd = string.Empty;
-            string arg1 = string.Empty;
-            string arg2 = string.Empty;
-
-            for (int i = 0; i < program.Length; i++)
+            for (var pointer = 0; pointer < program.Length; pointer++)
             {
-                input = program[i].Split(' ').ToList();
-                cmd = input[0];
-                arg1 = input[1];
-                if (input.Count > 2)
+                var values = program[pointer].Split();
+                var _ = values[0] switch
                 {
-                    arg2 = input[2];
-                }
-
-                switch (cmd)
-                {
-                    case "mov":
-                        result[arg1] = GetValue(arg2, result);
-
-                        break;
-                    case "inc":
-                        result[arg1]++;
-                        break;
-                    case "dec":
-                        result[arg1]--;
-                        break;
-                    case "jnz":
-                        if (result[arg1] != 0)
-                        {
-                            int dir = GetValue(arg2, result);
-                            if (dir != 0) dir -= 1;
-
-                            i += dir;
-                        }
-                        break;
-                }
+                    "mov" => memory[values[1]] = GetValue(values[2]),
+                    "inc" => memory[values[1]]++,
+                    "dec" => memory[values[1]]--,
+                    "jnz" => pointer += GetValue(values[1]) != 0 ? GetValue(values[2]) - 1 : 0,
+                    _ => throw new Exception("Input error")
+                };
             }
 
-            return result;
-        }
-        public static int GetValue(string arg, Dictionary<string, int> result)
-        {
-            int value;
-            if (int.TryParse(arg, out value))
-            {
-                return value;
-            }
-            else
-            {
-                return result[arg];
-            }
+            return memory;
         }
     }
 }
