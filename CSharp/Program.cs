@@ -17,12 +17,12 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = "ROT13 example.";
+            var input = "EBG13 rknzcyr";
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata5.JosSurvivor(7, 3);
+            var result = Kata5.JosSurvivor_kata_2(7, 3);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
