@@ -8,31 +8,42 @@ namespace CSharp._5kyu
     {
         public static Dictionary<string, int> ParseMolecule(string formula)
         {
-            var result = new Dictionary<string, int>();
+            System.Console.WriteLine(formula);
 
-            var pattern = @"[\(\[\{]\w+\d?[\)\]\}]\d?";
+            var originalFormula = formula;
+            var result = new Dictionary<string, int>();
+            var elements = new List<string>();
+            var pattern = @"[\(\[\{]\w+\d*[\)\]\}]\d*";
             var match = Regex.Match(formula, pattern);
+
             while (match.Success)
             {
-                Test(match.Groups[0].Value, result);
-                formula = Regex.Replace(formula, pattern, "");
+                var mv = match.Groups[0].Value;
+                Test(mv, result, elements);
+                formula = formula.Replace(mv, "");
 
                 match = Regex.Match(formula, pattern);
             }
 
             if (formula.Length > 0)
             {
-                Test(formula, result);
+                Test(formula, result, elements);
             }
 
-            return result;
+            var trueResult = new Dictionary<string, int>();
+            foreach (Match m in Regex.Matches(originalFormula, @"[A-Z][a-z]?"))
+            {
+                var molecule = m.Groups[0].Value;
+                if (!trueResult.ContainsKey(molecule)) trueResult.Add(molecule, result[molecule]);
+            }
+
+            return trueResult;
         }
 
-        private static void Test(string formula, Dictionary<string, int> result)
+        private static void Test(string formula, Dictionary<string, int> result, List<string> elements)
         {
-            var pattern2 = @"([A-Z][a-z]?)(\d?)";
+            var pattern2 = @"([A-Z][a-z]?)(\d*)";
             var match2 = Regex.Match(formula, pattern2);
-            var elements = new List<string>();
 
             while (match2.Success)
             {
@@ -48,7 +59,7 @@ namespace CSharp._5kyu
                     result.Add(element, atom);
                 }
 
-                elements.Add(element);
+                if (!elements.Contains(element)) elements.Add(element);
                 match2 = match2.NextMatch();
             }
 

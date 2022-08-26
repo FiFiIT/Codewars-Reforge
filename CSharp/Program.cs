@@ -17,7 +17,7 @@ namespace CSharp
 
         static void RunMe()
         {
-            var input = "K4[ON(SO3)2]2";
+            var input = "(C5H5)Fe(CO)2CH3";
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
