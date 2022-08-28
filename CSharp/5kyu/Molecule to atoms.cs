@@ -1,79 +1,51 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace CSharp._5kyu
 {
     public static partial class Kata5
     {
+        private static V SafeGetValue<K, V>(this Dictionary<K, V> dict, K key, V value = default(V))
+            => dict.ContainsKey(key) ? dict[key] : value;
+
         public static Dictionary<string, int> ParseMolecule(string formula)
         {
-            System.Console.WriteLine(formula);
-
-            var originalFormula = formula;
             var result = new Dictionary<string, int>();
-            var elements = new List<string>();
-            var pattern = @"[\(\[\{]\w+\d*[\)\]\}]\d*";
-            var match = Regex.Match(formula, pattern);
+            var factor = new Stack<int>();
+            factor.Push(1);
+            factor.Push(1);
+            //leksem podstawowa jednostka leksykalna na jaką dzielony jest tekst kodu źródłowego
+            var lexems = Regex.Matches(formula, @"(?<e>[A-Z][a-z]*)|(?<n>\d+)|(?<l>[\[({])|(?<r>[\])}])");
 
-            while (match.Success)
+            foreach (var lexem in lexems.Cast<Match>().Reverse())
             {
-                var mv = match.Groups[0].Value;
-                Test(mv, result, elements);
-                formula = formula.Replace(mv, "");
-
-                match = Regex.Match(formula, pattern);
-            }
-
-            if (formula.Length > 0)
-            {
-                Test(formula, result, elements);
-            }
-
-            var trueResult = new Dictionary<string, int>();
-            foreach (Match m in Regex.Matches(originalFormula, @"[A-Z][a-z]?"))
-            {
-                var molecule = m.Groups[0].Value;
-                if (!trueResult.ContainsKey(molecule)) trueResult.Add(molecule, result[molecule]);
-            }
-
-            return trueResult;
-        }
-
-        private static void Test(string formula, Dictionary<string, int> result, List<string> elements)
-        {
-            var pattern2 = @"([A-Z][a-z]?)(\d*)";
-            var match2 = Regex.Match(formula, pattern2);
-
-            while (match2.Success)
-            {
-                var element = match2.Groups[1].Value;
-                var atom = String.IsNullOrEmpty(match2.Groups[2].Value) ? 1 : int.Parse(match2.Groups[2].Value);
-
-                if (result.ContainsKey(element))
+                if (lexem.Groups["n"].Success)
                 {
-                    result[element] += atom;
-                }
-                else
-                {
-                    result.Add(element, atom);
+                    factor.Push(factor.Pop() * int.Parse(lexem.Value));
                 }
 
-                if (!elements.Contains(element)) elements.Add(element);
-                match2 = match2.NextMatch();
-            }
-
-            int value;
-            var patternForMultiply = @"\w+\d?[\)\]\}](\d)";
-            var multiply = Regex.Match(formula, patternForMultiply);
-            if (multiply.Success)
-            {
-                value = int.Parse(multiply.Groups[1].Value);
-                foreach (var element in elements)
+                if (lexem.Groups["l"].Success)
                 {
-                    result[element] *= value;
+                    factor.Pop();
+                    factor.Pop();
+                    factor.Push(factor.Peek());
+                }
+
+                if (lexem.Groups["r"].Success)
+                {
+                    factor.Push(factor.Peek());
+                }
+
+                if (lexem.Groups["e"].Success)
+                {
+                    result[lexem.Value] = factor.Pop() + result.SafeGetValue(lexem.Value);
+                    factor.Push(factor.Peek());
                 }
             }
+
+            return result;
         }
     }
 }
