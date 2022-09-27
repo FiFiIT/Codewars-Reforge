@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CSharp._5kyu;
+using CSharp._5kyuRepeat;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -12,26 +13,33 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            RunMe();
+            var game = new List<int[]>(){
+                new int[]{5, 3},new int[]{3, 5},new int[]{4, 1},new int[]{2, 5},new int[]{2, 2},new int[]{3, 1},new int[]{1, 2},new int[]{2, 5},new int[]{1, 4},new int[]{3, 4},new int[]{3, 4},new int[]{5, 5},new int[]{3, 1},new int[]{1, 1},new int[]{1, 2},new int[]{2, 2},new int[]{3, 2}
+            };
+            var test = new Kata5.SnakesLadders();
+
+            foreach (var roll in game)
+            {
+                Console.WriteLine(test.play(roll[0], roll[1]));
+            }
+
+            // RunMe();
         }
 
         static void RunMe()
         {
-            var input = "(C5H5)Fe(CO)2CH3";
+
+            var input = new int[,] { { 1, 1, 1 }, { 0, 2, 2 }, { 0, 0, 0 } };
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata5.ParseMolecule(input);
+            var result = Repeat.Rot13("EBG13 rknzcyr.");
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
 
-
-            foreach (var item in result)
-            {
-                Console.WriteLine($"{item.Key}: {item.Value}");
-            }
+            Console.WriteLine(result);
 
             Console.WriteLine("RunTime: " + milliseconds);
         }
