@@ -13,17 +13,7 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            var game = new List<int[]>(){
-                new int[]{5, 3},new int[]{3, 5},new int[]{4, 1},new int[]{2, 5},new int[]{2, 2},new int[]{3, 1},new int[]{1, 2},new int[]{2, 5},new int[]{1, 4},new int[]{3, 4},new int[]{3, 4},new int[]{5, 5},new int[]{3, 1},new int[]{1, 1},new int[]{1, 2},new int[]{2, 2},new int[]{3, 2}
-            };
-            var test = new Kata5.SnakesLadders();
-
-            foreach (var roll in game)
-            {
-                Console.WriteLine(test.play(roll[0], roll[1]));
-            }
-
-            // RunMe();
+            RunMe();
         }
 
         static void RunMe()
@@ -34,7 +24,7 @@ namespace CSharp
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Repeat.Rot13("EBG13 rknzcyr.");
+            var result = Kata5.Decomp(12);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
