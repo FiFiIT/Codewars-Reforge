@@ -27,7 +27,10 @@ namespace CSharp._5kyu
                     number /= divider;
                     yield return divider;
                 }
-                if (number % divider != 0) divider++;
+                else
+                {
+                    divider++;
+                }
             }
         }
     }

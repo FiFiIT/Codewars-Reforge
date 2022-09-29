@@ -19,12 +19,12 @@ namespace CSharp
         static void RunMe()
         {
 
-            var input = new int[,] { { 1, 1, 1 }, { 0, 2, 2 }, { 0, 0, 0 } };
+            var input = "My3CodeIs4TimesBetter";
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata5.Decomp(12);
+            var result = Kata5.Interpreter("*[>*]", "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
