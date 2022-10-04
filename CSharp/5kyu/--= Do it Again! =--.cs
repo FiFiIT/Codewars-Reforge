@@ -8,18 +8,32 @@ namespace CSharp._5kyuRepeat
 {
     public static class Repeat
     {
-        public static string Rot13(string input)
+        public static string Decomp(int n)
         {
-            var rot = input.ToCharArray().Select(c => Cypher(c));
+            var r = Enumerable.Range(2, n - 1)
+                .Select(x => x.Factors())
+                .SelectMany(x => x)
+                .GroupBy(x => x)
+                .Select(g => g.Count() > 1 ? $"{g.Key}^{g.Count()}" : $"{g.Key}");
 
-            return new String(rot.ToArray());
+            return String.Join(" * ", r);
         }
-        public static char Cypher(char c)
+
+        public static IEnumerable<int> Factors(this int x)
         {
-            if (char.IsLetter(c))
-                return c >= 'm' ? (char)(c - 13) : (char)(c + 13);
-            else
-                return c;
+            int d = 2;
+            while (x != 1)
+            {
+                if (x % d == 0)
+                {
+                    x /= d;
+                    yield return d;
+                }
+                else
+                {
+                    d++;
+                }
+            }
         }
     }
 }

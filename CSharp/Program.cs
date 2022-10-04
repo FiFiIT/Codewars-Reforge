@@ -18,20 +18,21 @@ namespace CSharp
 
         static void RunMe()
         {
-
-            var input = "My3CodeIs4TimesBetter";
+            var input = "";
+            int[,] a = { { 1, 2 }, { 3, 2 } };
+            int[,] b = { { 3, 2 }, { 1, 1 } };
 
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata5.Interpreter("*[>*]", "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+            var result = Kata5.MixedFraction("42/9");
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);
 
             Console.WriteLine(result);
 
-            Console.WriteLine("RunTime: " + milliseconds);
+            Console.WriteLine("RunTime: ", milliseconds);
         }
         static IEnumerable<int> GetFromFile(string path)
         {
