@@ -5,6 +5,23 @@ using System.Linq;
 
 namespace CSharp._5kyu
 {
+    public static class Extension2
+    {
+        private static V GetV<K, V>(this Dictionary<K, V> dict, K key, V value = default(V))
+                        => dict.ContainsKey(key) ? dict[key] : value;
+
+        private static void AddV<K>(this Dictionary<K, List<long>> dict, K key, long value)
+        {
+            if (dict.ContainsKey(key))
+            {
+                dict[key].Add(value);
+            }
+            else
+            {
+                dict.Add(key, new List<long> { value });
+            }
+        }
+    }
     public static partial class Kata5
     {
         private static V SafeGetValue<K, V>(this Dictionary<K, V> dict, K key, V value = default(V))
