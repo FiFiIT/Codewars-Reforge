@@ -13,6 +13,7 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
+
             RunMe();
         }
 
@@ -23,7 +24,7 @@ namespace CSharp
             Stopwatch stopWath = new Stopwatch();
             stopWath.Start();
 
-            var result = Kata5.going(50);
+            var result = Kata5.solEquaStr(16);
 
             stopWath.Stop();
             string milliseconds = String.Format("{0}ms", stopWath.ElapsedMilliseconds);

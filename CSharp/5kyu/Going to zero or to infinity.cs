@@ -5,7 +5,7 @@ namespace CSharp._5kyu
 {
     public static partial class Kata5
     {
-        public static double going_kata2(int n)
+        public static double going(int n)
         {
             double running = 1.0, term = 1.0;
             for (int i = n; i > 0; i--)
@@ -28,31 +28,6 @@ namespace CSharp._5kyu
             }
 
             return Math.Round(result, 6);
-        }
-        public static double going(int n)
-        {
-            Console.WriteLine(n);
-            double r = Factorial(n);
-            double result = 0;
-
-            for (int i = 2; i <= n; i++)
-            {
-                var y = Factorial(n, i);
-
-                result += y;
-            }
-
-            return result + r;
-        }
-        private static double Factorial(int n, int to = 0)
-        {
-            double result = 1;
-            while (n > to)
-            {
-                result *= (double)1 / n--;
-            }
-
-            return result;
         }
     }
 }
